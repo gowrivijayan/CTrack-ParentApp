@@ -44,6 +44,66 @@ public class MainActivity extends AppCompatActivity {
         editor = sharedPreferences.edit();
 
         submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                email = regemail.getText().toString();
+                pass = regpass.getText().toString();
+                conpass = regpass.getText().toString();
+
+                MakeVisible();
+
+                if(TextUtils.isEmpty(email)||TextUtils.isEmpty(pass)||TextUtils.isEmpty(conpass)){
+
+                    Toast.makeText(Register.this," Input fields cannot be empty",Toast.LENGTH_LONG).show();
+
+                    MakeInVisible();
+                }else{
+
+                    if(pass.equals(conpass)){
+
+
+                        mAuth.createUserWithEmailAndPassword(email,pass)
+                                .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                        if(task.isSuccessful()){
+                                            String uid;
+                                            Toast.makeText(Register.this," Registration Successful!!!",Toast.LENGTH_LONG).show();
+                                            Log.i("Output Create User :->","Success");
+                                            uid = mAuth.getUid();
+                                            editor.putString("UID",uid);
+                                            editor.putString("EmailID",email);
+                                            editor.apply();
+                                            Intent intent = new Intent(Register.this,Home.class);
+                                            startActivity(intent);
+                                            finish();
+
+
+                                        }else{
+                                            Toast.makeText(Register.this," Something went wrong , Try again Later",Toast.LENGTH_LONG).show();
+
+                                            MakeVisible();
+                                            Log.i("Output Create User :->","Error 400 : "+task.getResult()+"\n : "+task.getException());
+
+                                        }
+                                    }
+                                });
+                    }else{
+
+                        Toast.makeText(Register.this," Password field does'nt match !!",Toast.LENGTH_LONG).show();
+                        Log.i("OutputCredentialsUser:","Password mismatch");
+
+                        MakeInVisible();
+                    }
+                }
+
+
+            }
+        });
+
+    }
     }
 
     // for testing puyrposses
