@@ -102,6 +102,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void MakeVisible(){
+
+        regemail.setVisibility(View.INVISIBLE);
+        regpass.setVisibility(View.INVISIBLE);
+        regconpass.setVisibility(View.INVISIBLE);
+
+        // progressBar.setVisibility(View.VISIBLE);
+
+    }
+
+    private void MakeInVisible(){
+        regemail.setVisibility(View.VISIBLE);
+        regpass.setVisibility(View.VISIBLE);
+        regconpass.setVisibility(View.VISIBLE);
+
+        //progressBar.setVisibility(View.INVISIBLE);
 
     }
     }
