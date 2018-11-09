@@ -30,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button submit;
+        mAuth = FirebaseAuth.getInstance();
+
+        //progressBar = findViewById(R.id.progressBar2);
+        regemail = findViewById(R.id.regemail);
+        regpass = findViewById(R.id.regpass);
+        regconpass = findViewById(R.id.regconpass);
+        submit = findViewById(R.id.submitbtn);
+
+        sharedPreferences = getSharedPreferences("UserLoginDetails",MODE_PRIVATE);
+
+        editor = sharedPreferences.edit();
+
+        submit.setOnClickListener(new View.OnClickListener() {
     }
 
     // for testing puyrposses
