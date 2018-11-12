@@ -35,4 +35,14 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
         }else {
             view = inflater.inflate(R.layout.listlayoutview,parent,false);
         }
-        
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+
+        UserData data = childrens.get(position);
+        ViewHolder hold = (ViewHolder)holder;
+        hold.phon.setText(data.getName());
+    }
+
