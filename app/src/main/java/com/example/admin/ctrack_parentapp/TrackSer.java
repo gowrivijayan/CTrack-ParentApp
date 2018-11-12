@@ -25,7 +25,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class TrackSer extends AppCompatActivity {
+public class TrackSer extends Service {
+
+
+    List<UserData> childrens;
+    Gson gson;
+    List<Place>geofences;
+    SharedPreferences sharedPreferences;
+    String child,fence;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
