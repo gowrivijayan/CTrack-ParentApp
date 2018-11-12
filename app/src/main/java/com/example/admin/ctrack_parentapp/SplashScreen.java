@@ -23,5 +23,14 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        sharedPreferences = getSharedPreferences("UserLoginDetails",MODE_PRIVATE);
+
+        LocationManager locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            Toast.makeText(SplashScreen.this, "Please enable Location Service", Toast.LENGTH_LONG).show();
+            finish();
+        }
+
     }
 }
