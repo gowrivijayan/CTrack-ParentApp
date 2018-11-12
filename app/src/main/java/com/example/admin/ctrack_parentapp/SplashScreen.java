@@ -53,6 +53,36 @@ public class SplashScreen extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
+                }
+            },5000);
+
+
+        }else{
+
+            ActivityCompat.requestPermissions(this,new String[]
+                            {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET}
+                    ,PERMISSION_REQUEST);
+
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == PERMISSION_REQUEST && grantResults.length==2
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            Intent intent = new Intent(SplashScreen.this,Register.class);
+            startActivity(intent);
+            finish();
+
+
+
+        }else{
+
+            finish();
+        
+
         }
 
 
