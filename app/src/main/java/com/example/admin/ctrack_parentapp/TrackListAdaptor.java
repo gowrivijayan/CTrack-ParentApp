@@ -12,7 +12,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class TrackListAdaptor extends AppCompatActivity {
+public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.ViewHolder> {
+
+    Context context;
+    List<UserData> childrens;
+
+    public TrackListAdaptor(Context context, List<UserData> childrens) {
+        this.context = context;
+        this.childrens = childrens;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
