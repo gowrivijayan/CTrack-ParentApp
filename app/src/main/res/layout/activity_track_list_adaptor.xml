@@ -21,3 +21,8 @@
                     android:layout_height="100dp"
                     android:src="@drawable/ic_loc"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_toRightOf="@id/imgloco"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center">
