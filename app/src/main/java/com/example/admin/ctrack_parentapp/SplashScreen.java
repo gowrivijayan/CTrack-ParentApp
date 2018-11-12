@@ -31,6 +31,13 @@ public class SplashScreen extends AppCompatActivity {
             Toast.makeText(SplashScreen.this, "Please enable Location Service", Toast.LENGTH_LONG).show();
             finish();
         }
+        
+        int permission = ContextCompat
+                .checkSelfPermission(SplashScreen.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION);
 
-    }
+        if(permission==PackageManager.PERMISSION_GRANTED){
+
+
+        }
 }
