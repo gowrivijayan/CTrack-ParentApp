@@ -23,8 +23,16 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_track_list_adaptor);
-    }
-}
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view;
+        LayoutInflater inflater = (LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        Log.i("Count",""+childrens.size());
+        if(childrens.isEmpty()){
+
+            view = inflater.inflate(R.layout.nothingtodiplay,parent,false);
+        }else {
+            view = inflater.inflate(R.layout.listlayoutview,parent,false);
+        }
+        
