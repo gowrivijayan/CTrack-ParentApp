@@ -26,3 +26,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:gravity="center">
+                <TextView
+                    android:id="@+id/numdisp"
+                    android:hint="Child Number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/imgloco"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
