@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.admin.ctrack_parentapp.Register;
+
 public class SplashScreen extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST=1;
@@ -31,12 +33,27 @@ public class SplashScreen extends AppCompatActivity {
             Toast.makeText(SplashScreen.this, "Please enable Location Service", Toast.LENGTH_LONG).show();
             finish();
         }
-        
+
         int permission = ContextCompat
                 .checkSelfPermission(SplashScreen.this,
                         Manifest.permission.ACCESS_FINE_LOCATION);
 
         if(permission==PackageManager.PERMISSION_GRANTED){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if(sharedPreferences.getString("UID",null)!= null){
+
+                        Intent intent = new Intent(SplashScreen.this,Home.class);
+                        startActivity(intent);
+                        finish();
+                    }else{
+                        Intent intent = new Intent(SplashScreen.this,Register.class);
+                        startActivity(intent);
+                        finish();
+                    }
+        }
 
 
         }
