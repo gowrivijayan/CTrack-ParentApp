@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".Home" />
-        <activity android:name=".Display"></activity>
+        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>
