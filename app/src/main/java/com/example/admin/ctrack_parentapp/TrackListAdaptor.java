@@ -49,3 +49,9 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
     public int getItemCount() {
         return childrens.size();
     }
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView phon;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
