@@ -22,6 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+public class Display extends FragmentActivity implements OnMapReadyCallback {
+
+    private static final String TAG = Display.class.getSimpleName();
+    private HashMap<String,Marker> markerHashMap = new HashMap<>();
+    private GoogleMap mMap;
+    private String num;
 
 public class Display extends AppCompatActivity {
 
