@@ -55,3 +55,10 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
 
         public ViewHolder(View itemView) {
             super(itemView);
+
+            phon = itemView.findViewById(R.id.numdisp);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
