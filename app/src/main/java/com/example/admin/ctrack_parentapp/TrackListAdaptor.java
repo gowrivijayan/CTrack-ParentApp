@@ -62,3 +62,13 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
 
         @Override
         public void onClick(View view) {
+            UserData data = childrens.get(getPosition());
+            Intent intent = new Intent(context,Display.class);
+            intent.putExtra("Number",data.getPhonenumber());
+            context.startActivity(intent);
+            ((Activity)context).finish();
+
+        }
+    }
+}
+        
