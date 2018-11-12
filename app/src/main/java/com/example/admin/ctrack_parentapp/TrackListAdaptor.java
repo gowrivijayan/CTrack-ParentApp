@@ -45,4 +45,7 @@ public class TrackListAdaptor extends RecyclerView.Adapter<TrackListAdaptor.View
         ViewHolder hold = (ViewHolder)holder;
         hold.phon.setText(data.getName());
     }
-
+    @Override
+    public int getItemCount() {
+        return childrens.size();
+    }
