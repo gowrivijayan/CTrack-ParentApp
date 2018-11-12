@@ -47,4 +47,7 @@ public class TrackSer extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        gson = new Gson();
+        sharedPreferences = getSharedPreferences("UserLoginDetails",MODE_PRIVATE);
+        child = sharedPreferences.getString("childlist","null");
+        fence = sharedPreferences.getString("fencelist","null");
