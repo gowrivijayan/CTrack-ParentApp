@@ -19,7 +19,8 @@
         <activity android:name=".Register" />
         <activity android:name=".Home" />
         <activity android:name=".GeoFencing" />
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".SplashScreen" />
+        <activity android:name=".TrackListAdaptor"></activity>
     </application>
 
 </manifest>
