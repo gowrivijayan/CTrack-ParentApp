@@ -51,3 +51,36 @@ public class TrackSer extends Service {
         sharedPreferences = getSharedPreferences("UserLoginDetails",MODE_PRIVATE);
         child = sharedPreferences.getString("childlist","null");
         fence = sharedPreferences.getString("fencelist","null");
+
+        Log.i("List",child+"{}{}"+fence);
+
+        if(!child.equals("null") && !fence.equals("null")){
+
+            Type type = new TypeToken<ArrayList<UserData>>() {}.getType();
+            Type type1 = new TypeToken<ArrayList<Place>>(){}.getType();
+
+
+            childrens = gson.fromJson(child,type);
+
+            geofences = GeoFencing.geofences;
+
+
+
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Childrens");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
