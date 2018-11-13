@@ -48,4 +48,14 @@ public class Display extends AppCompatActivity {
 
         mMap.setMaxZoomPreference(16);
         MapUpdates();
-}
+        private void MapUpdates(){
+
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Childrens");
+            ref.child(num).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    setMarker(dataSnapshot);
+                }
+
+            }
