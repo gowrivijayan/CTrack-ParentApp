@@ -42,4 +42,10 @@ public class Display extends AppCompatActivity {
         Intent intent = getIntent();
         num = intent.getStringExtra("Number");
     }
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        mMap.setMaxZoomPreference(16);
+        MapUpdates();
 }
