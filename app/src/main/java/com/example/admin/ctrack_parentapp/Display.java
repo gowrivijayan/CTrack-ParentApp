@@ -57,5 +57,26 @@ public class Display extends AppCompatActivity {
 
                     setMarker(dataSnapshot);
                 }
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    setMarker(dataSnapshot);
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    Log.d("Error :","Failed to read value",databaseError.toException());
+                }
 
             }
