@@ -90,5 +90,17 @@ public class Display extends AppCompatActivity {
             if(key.equals("Current")){
 
                 HashMap<String, Object> value = (HashMap<String, Object>)dataSnapshot.getValue();
+            });
+
+        }
+
+        private void setMarker(DataSnapshot dataSnapshot){
+
+            String key = dataSnapshot.getKey();
+            Log.i("data:",key);
+            Log.i("data:",dataSnapshot.getValue().toString());
+            if(key.equals("Current")){
+
+                HashMap<String, Object> value = (HashMap<String, Object>)dataSnapshot.getValue();
 
             }
