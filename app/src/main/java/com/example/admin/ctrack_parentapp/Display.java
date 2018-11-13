@@ -102,5 +102,21 @@ public class Display extends AppCompatActivity {
             if(key.equals("Current")){
 
                 HashMap<String, Object> value = (HashMap<String, Object>)dataSnapshot.getValue();
+            }
+
+            mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(),300));
+
+
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Display.this,Home.class);
+        startActivity(intent);
+        finish();
+    }
 
             }
