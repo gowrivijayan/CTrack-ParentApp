@@ -133,6 +133,32 @@ public class TrackSer extends Service {
 
                 if(results[0]<1000 && results[0]>(-1000)){
                     Log.i("Fenced","In Fenced Location");
+
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),"1")
+                            .setSmallIcon(R.drawable.ic_loc_notiy)
+                            .setContentTitle("Location Changed")
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setContentText(userData.getName()+"Changed Location and is now near"+p.getName())
+                            .setAutoCancel(true);
+
+
+                    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat
+                            .from(getApplicationContext());
+                    notificationManagerCompat.notify(888,builder.build());
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("Service","stoped");
+    }
+}
+
     }
 
 
