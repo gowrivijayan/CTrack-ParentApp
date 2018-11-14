@@ -101,6 +101,15 @@ public class TrackSer extends Service {
                 });
             }
 
+        }else{
+
+            Log.i("Fence","No fence added");
+            onDestroy();
+        }
+    }
+
+    void Checkfence(UserData userData,DataSnapshot dataSnapshot){
+
 
 
 
