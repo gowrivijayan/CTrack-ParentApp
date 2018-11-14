@@ -125,6 +125,14 @@ public class TrackSer extends Service {
 
                 double mrklat = p.getLatLng().latitude;
                 double mrklong = p.getLatLng().longitude;
+
+                float []results = new float[10];
+                Location.distanceBetween(mrklat,mrklong,lat,lng,results);
+
+                Log.i("Result Distance",""+results[0]);
+
+                if(results[0]<1000 && results[0]>(-1000)){
+                    Log.i("Fenced","In Fenced Location");
     }
 
 
