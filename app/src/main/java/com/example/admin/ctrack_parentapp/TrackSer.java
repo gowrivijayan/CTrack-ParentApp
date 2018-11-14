@@ -68,6 +68,15 @@ public class TrackSer extends Service {
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Childrens");
 
+            for(final UserData userdata : childrens){
+                ref.child(userdata.getPhonenumber()).addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                        Checkfence(userdata,dataSnapshot);
+                    }
+                    
+
 
 
 
