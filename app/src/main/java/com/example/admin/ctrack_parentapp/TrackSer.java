@@ -110,6 +110,23 @@ public class TrackSer extends Service {
 
     void Checkfence(UserData userData,DataSnapshot dataSnapshot){
 
+        for(Place p : geofences){
+
+            String key = dataSnapshot.getKey();
+            Log.i("data:",key);
+            Log.i("data:",dataSnapshot.getValue().toString());
+            if(key.equals("Current")) {
+
+                HashMap<String, Object> value = (HashMap<String, Object>) dataSnapshot.getValue();
+                //value.put;
+                //dataSnapshot.get
+                double lat = Double.parseDouble(value.get("latitude").toString());
+                double lng = Double.parseDouble(value.get("longitude").toString());
+
+                double mrklat = p.getLatLng().latitude;
+                double mrklong = p.getLatLng().longitude;
+    }
+
 
 
 
