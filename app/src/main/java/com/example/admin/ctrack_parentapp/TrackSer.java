@@ -68,6 +68,99 @@ public class TrackSer extends Service {
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Childrens");
 
+            for(final UserData userdata : childrens){
+                ref.child(userdata.getPhonenumber()).addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                        Checkfence(userdata,dataSnapshot);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+
+                        Checkfence(userdata,dataSnapshot);
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+        }else{
+
+            Log.i("Fence","No fence added");
+            onDestroy();
+        }
+    }
+
+    void Checkfence(UserData userData,DataSnapshot dataSnapshot){
+
+        for(Place p : geofences){
+
+            String key = dataSnapshot.getKey();
+            Log.i("data:",key);
+            Log.i("data:",dataSnapshot.getValue().toString());
+            if(key.equals("Current")) {
+
+                HashMap<String, Object> value = (HashMap<String, Object>) dataSnapshot.getValue();
+                //value.put;
+                //dataSnapshot.get
+                double lat = Double.parseDouble(value.get("latitude").toString());
+                double lng = Double.parseDouble(value.get("longitude").toString());
+
+                double mrklat = p.getLatLng().latitude;
+                double mrklong = p.getLatLng().longitude;
+
+                float []results = new float[10];
+                Location.distanceBetween(mrklat,mrklong,lat,lng,results);
+
+                Log.i("Result Distance",""+results[0]);
+
+                if(results[0]<1000 && results[0]>(-1000)){
+                    Log.i("Fenced","In Fenced Location");
+
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),"1")
+                            .setSmallIcon(R.drawable.ic_loc_notiy)
+                            .setContentTitle("Location Changed")
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setContentText(userData.getName()+"Changed Location and is now near"+p.getName())
+                            .setAutoCancel(true);
+
+
+                    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat
+                            .from(getApplicationContext());
+                    notificationManagerCompat.notify(888,builder.build());
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("Service","stoped");
+    }
+}
+
+    }
+
 
 
 
