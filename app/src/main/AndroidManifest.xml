@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".Home" />
-        <activity android:name=".TrackSer"></activity>
+        <activity android:name=".TrackSer" />
+        <activity android:name=".promtsview"></activity>
     </application>
 
 </manifest>
